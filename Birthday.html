@@ -1,0 +1,995 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday ❤️</title>
+
+
+<style>
+
+/* =========================
+   BASIC SETTINGS
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", Arial, sans-serif;
+    background: linear-gradient(135deg, #ff758c, #8e44ad);
+    color: white;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   WELCOME SCREEN
+========================= */
+
+#welcome {
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 20px;
+}
+
+.welcome-box {
+    max-width: 700px;
+    padding: 40px;
+}
+
+.gift {
+    font-size: 100px;
+
+    animation: bounce 1.5s infinite;
+}
+
+.welcome-box h1 {
+    font-size: 48px;
+
+    margin: 20px 0;
+
+    animation: glow 2s infinite alternate;
+}
+
+.welcome-box p {
+    font-size: 21px;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+button {
+    border: none;
+
+    padding: 16px 35px;
+
+    border-radius: 40px;
+
+    background: white;
+
+    color: #d63384;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+
+/* =========================
+   MAIN BIRTHDAY SECTION
+========================= */
+
+#birthday {
+
+    display: none;
+
+    min-height: 100vh;
+
+    padding: 70px 20px;
+}
+
+.container {
+
+    max-width: 1000px;
+
+    margin: auto;
+
+    text-align: center;
+}
+
+.birthday-title {
+
+    font-size: 60px;
+
+    margin-bottom: 20px;
+
+    animation: glow 2s infinite alternate;
+}
+
+.name {
+
+    color: #ffeaa7;
+
+    font-size: 40px;
+}
+
+.intro {
+
+    max-width: 700px;
+
+    margin: 20px auto;
+
+    font-size: 20px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   CAKE
+========================= */
+
+.cake-container {
+
+    margin: 70px 0;
+}
+
+.cake {
+
+    position: relative;
+
+    width: 250px;
+
+    height: 200px;
+
+    margin: auto;
+}
+
+.cake-bottom {
+
+    position: absolute;
+
+    bottom: 0;
+
+    width: 250px;
+
+    height: 80px;
+
+    background: #ffb6c1;
+
+    border-radius: 15px;
+
+    box-shadow: 0 10px 0 #e88fa0;
+}
+
+.cake-middle {
+
+    position: absolute;
+
+    bottom: 65px;
+
+    left: 15px;
+
+    width: 220px;
+
+    height: 65px;
+
+    background: #ff69b4;
+
+    border-radius: 15px;
+}
+
+.cake-top {
+
+    position: absolute;
+
+    bottom: 115px;
+
+    left: 30px;
+
+    width: 190px;
+
+    height: 55px;
+
+    background: #ffe4e1;
+
+    border-radius: 15px;
+}
+
+
+/* =========================
+   CANDLE
+========================= */
+
+.candle {
+
+    position: absolute;
+
+    width: 18px;
+
+    height: 55px;
+
+    background: white;
+
+    left: 50%;
+
+    top: 0;
+
+    transform: translateX(-50%);
+
+    z-index: 5;
+
+    border-radius: 5px;
+}
+
+.flame {
+
+    position: absolute;
+
+    width: 25px;
+
+    height: 35px;
+
+    background: orange;
+
+    border-radius: 50% 50% 50% 0;
+
+    transform: rotate(-45deg);
+
+    top: -28px;
+
+    left: -3px;
+
+    animation: flame 0.5s infinite alternate;
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message {
+
+    max-width: 750px;
+
+    margin: 50px auto;
+
+    padding: 40px;
+
+    background: rgba(255,255,255,0.15);
+
+    backdrop-filter: blur(10px);
+
+    border-radius: 25px;
+
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.message h2 {
+
+    font-size: 30px;
+
+    margin-bottom: 20px;
+}
+
+.message p {
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    margin: 12px;
+}
+
+.love {
+
+    color: #ffeaa7;
+
+    font-size: 24px !important;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   FINAL SURPRISE
+========================= */
+
+.surprise {
+
+    margin: 90px auto;
+}
+
+.surprise h2 {
+
+    font-size: 35px;
+
+    margin-bottom: 25px;
+}
+
+#secret {
+
+    display: none;
+
+    max-width: 750px;
+
+    margin: 30px auto;
+
+    padding: 40px;
+
+    background: rgba(255,255,255,0.2);
+
+    border-radius: 25px;
+
+    animation: appear 1s ease;
+}
+
+#secret h2 {
+
+    color: #ffeaa7;
+}
+
+#secret p {
+
+    font-size: 19px;
+
+    line-height: 1.8;
+
+    margin: 15px;
+}
+
+.big {
+
+    font-size: 30px !important;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    padding: 40px;
+
+    font-size: 17px;
+}
+
+
+/* =========================
+   MULTI-COLOR FLOATING HEARTS
+========================= */
+
+.heart {
+
+    position: fixed;
+
+    bottom: -30px;
+
+    font-size: 25px;
+
+    animation: floatHeart 5s linear forwards;
+
+    pointer-events: none;
+
+    z-index: 1000;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes bounce {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-25px);
+    }
+}
+
+
+@keyframes glow {
+
+    from {
+        text-shadow: 0 0 10px white;
+    }
+
+    to {
+        text-shadow: 0 0 35px #ffeaa7;
+    }
+}
+
+
+@keyframes flame {
+
+    from {
+        transform: rotate(-45deg) scale(1);
+    }
+
+    to {
+        transform: rotate(-45deg) scale(1.2);
+    }
+}
+
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes floatHeart {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 1;
+    }
+
+    100% {
+
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+
+    .welcome-box h1 {
+
+        font-size: 34px;
+    }
+
+    .birthday-title {
+
+        font-size: 40px;
+    }
+
+    .name {
+
+        font-size: 30px;
+    }
+
+    .message {
+
+        padding: 25px;
+    }
+
+    .cake {
+
+        transform: scale(0.85);
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     WELCOME PAGE
+========================= -->
+
+<section id="welcome">
+
+    <div class="welcome-box">
+
+        <div class="gift">
+            🎁
+        </div>
+
+        <h1>
+            Hey! Yashoooo... ❤️
+        </h1>
+
+        <p>
+            I have a beautiful surprise waiting for you.
+        </p>
+
+        <button onclick="openBirthday()">
+            Open Your Surprise 💝
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     BIRTHDAY PAGE
+========================= -->
+
+<section id="birthday">
+
+    <div class="container">
+
+
+        <!-- Birthday Heading -->
+
+        <h1 class="birthday-title">
+
+            🎉 HAPPY BIRTHDAY 🎉
+
+        </h1>
+
+
+        <h2 class="name">
+
+            Dear special person
+
+        </h2>
+
+
+        <p class="intro">
+
+            Today is not just another day...
+
+            It is the day a wonderful person came into this world.
+
+            May your life always be filled with happiness,
+            love, success and beautiful memories.
+
+            May all your dreams come true and may every
+            new chapter of your life bring something
+            wonderful.
+
+        </p>
+
+
+
+        <!-- =========================
+             CAKE
+        ========================= -->
+
+        <div class="cake-container">
+
+            <div class="cake">
+
+                <div class="candle">
+
+                    <div class="flame"></div>
+
+                </div>
+
+                <div class="cake-top"></div>
+
+                <div class="cake-middle"></div>
+
+                <div class="cake-bottom"></div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             PERSONAL MESSAGE
+        ========================= -->
+
+        <div class="message">
+
+            <h2>
+
+                💌 A Special Message For You
+
+            </h2>
+
+
+            <p>
+
+                I get jealous when someone gets too close to you,
+                we fight over the stupidest things.
+
+                I irritate you most of the times and you also like
+                to irritate me and I like it.
+
+                Our bond is like
+                "TUZE MAZE JAMENA TUZY VINA KARMENA"
+
+                I know you care about me, love me deep down,
+                even if you never say it or show it openly.
+
+                You never give me compliment but I know everything
+                very well.
+
+                Maybe that’s why our bond is so special.
+
+                You are truly special to me and have an important
+                place in my life.
+
+                No matter how much I say, it will never be enough
+                to express how much you mean to me.
+
+            </p>
+
+
+            <p class="love">
+
+                Once again, Happy Birthday! 🎂
+
+            </p>
+
+        </div>
+
+
+
+        <!-- =========================
+             FINAL SURPRISE
+        ========================= -->
+
+        <div class="surprise">
+
+            <h2>
+
+                🎁 One Last Surprise
+
+            </h2>
+
+
+            <button onclick="showSecret()">
+
+                Click Here ❤️
+
+            </button>
+
+
+            <div id="secret">
+
+                <h2>
+
+                    Your place in my life is irreplaceable. 🧿
+
+                </h2>
+
+
+                <p>
+
+                    No matter where life takes you,
+
+                    I hope you always have a reason to smile.
+
+                </p>
+
+
+                <p>
+
+                    May this birthday be the beginning
+
+                    of your happiest year yet. ✨
+
+                </p>
+
+
+                <p class="big">
+
+                    HAPPY BIRTHDAY MY SUKH DUKH KE SATHI! 🎂🎉
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <footer>
+
+            Made especially for you ❤️
+
+        </footer>
+
+
+    </div>
+
+</section>
+
+
+
+<script>
+
+
+/* =========================
+   OPEN BIRTHDAY
+========================= */
+
+function openBirthday() {
+
+    document.getElementById("welcome").style.display = "none";
+
+    document.getElementById("birthday").style.display = "block";
+
+    window.scrollTo(0, 0);
+
+    createConfetti();
+
+    startHearts();
+
+}
+
+
+
+/* =========================
+   FINAL SURPRISE
+========================= */
+
+function showSecret() {
+
+    const secret =
+        document.getElementById("secret");
+
+    secret.style.display = "block";
+
+    createConfetti();
+
+    secret.scrollIntoView({
+
+        behavior: "smooth"
+
+    });
+
+}
+
+
+
+/* =========================
+   CONFETTI
+========================= */
+
+function createConfetti() {
+
+    const emojis = [
+
+        "🎉",
+        "🎊",
+        "✨",
+        "💖",
+        "🎈",
+        "❤️"
+
+    ];
+
+
+    for (let i = 0; i < 100; i++) {
+
+        const confetti =
+            document.createElement("div");
+
+
+        confetti.innerHTML =
+            emojis[
+                Math.floor(
+                    Math.random() * emojis.length
+                )
+            ];
+
+
+        confetti.style.position = "fixed";
+
+
+        confetti.style.left =
+            Math.random() * 100 + "vw";
+
+
+        confetti.style.top =
+            "-30px";
+
+
+        confetti.style.fontSize =
+            Math.random() * 20 + 15 + "px";
+
+
+        confetti.style.zIndex =
+            "9999";
+
+
+        document.body.appendChild(confetti);
+
+
+        const animation =
+            confetti.animate(
+
+                [
+
+                    {
+
+                        transform:
+                            "translateY(0) rotate(0deg)",
+
+                        opacity: 1
+
+                    },
+
+                    {
+
+                        transform:
+                            "translateY(110vh) rotate(720deg)",
+
+                        opacity: 0
+
+                    }
+
+                ],
+
+                {
+
+                    duration:
+                        Math.random() * 3000 + 2000,
+
+                    easing: "linear"
+
+                }
+
+            );
+
+
+        animation.onfinish =
+            function() {
+
+                confetti.remove();
+
+            };
+
+    }
+
+}
+
+
+
+/* =========================
+   MULTI-COLOR FLOATING HEARTS
+========================= */
+
+function createHeart() {
+
+
+    const heart =
+        document.createElement("div");
+
+
+    heart.className =
+        "heart";
+
+
+    /*
+
+       RED ❤️
+       YELLOW 💛
+       PINK 🩷
+       WHITE 🤍
+
+    */
+
+    const heartColors = [
+
+        "❤️",
+        "💛",
+        "🩷",
+        "🤍"
+
+    ];
+
+
+    heart.innerHTML =
+        heartColors[
+            Math.floor(
+                Math.random() *
+                heartColors.length
+            )
+        ];
+
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+
+    heart.style.fontSize =
+        Math.random() * 20 + 15 + "px";
+
+
+    heart.style.animationDuration =
+        Math.random() * 3 + 4 + "s";
+
+
+    document.body.appendChild(heart);
+
+
+    setTimeout(
+
+        function() {
+
+            heart.remove();
+
+        },
+
+        7000
+
+    );
+
+}
+
+
+
+function startHearts() {
+
+    setInterval(
+
+        createHeart,
+
+        500
+
+    );
+
+}
+
+</script>
+
+
+</body>
+
+</html>
+```
